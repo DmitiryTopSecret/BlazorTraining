@@ -5,3 +5,4 @@
 /.vs
 /BlazorServerTest/obj
 /BlazorServerTest/bin/Debug/net7.0
+/BlazorServerTest/bin/Debug/net6.0
