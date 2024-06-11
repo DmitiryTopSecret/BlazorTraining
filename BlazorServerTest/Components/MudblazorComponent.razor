@@ -1,0 +1,29 @@
+﻿@page "/mudblazorcomponent"
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudCard>
+        <MudCardContent>
+
+            <MudText Typo="Typo.h5">MudBlazor Components Test</MudText>
+
+            <MudCheckBox @bind-Checked="@checkedValue">Check me</MudCheckBox>
+
+            <MudRadioGroup @bind-SelectedOption="@selectedOption">
+                <MudRadio Option="@("option1")">Option 1</MudRadio>
+                <MudRadio Option="@("option2")">Option 2</MudRadio>
+            </MudRadioGroup>
+
+            <MudDatePicker @bind-Date="@selectedDate" Label="Select a date" />
+
+            <MudTextField @bind-Value="@textFieldValue" Label="Enter text" />
+
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+    private bool checkedValue;
+    private string selectedOption;
+    private DateTime? selectedDate;
+    private string textFieldValue;
+}
