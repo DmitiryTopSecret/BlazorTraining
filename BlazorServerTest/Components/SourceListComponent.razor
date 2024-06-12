@@ -1,24 +1,14 @@
-﻿<h3>The List of all Sources</h3>
+﻿@using Data.Sources;
 
-<MudSelect T="string" Lable="Source:" Variant="Variant.Outlined">
+<h3>The List of all Sources</h3>
+
+<MudSelect T="@Source" Lable="Source:" Variant="Variant.Outlined" MultiSelection="true" ToStringFunc="@(x => x.Name)" @bind-SelectedValues="SelectedSources">
+
     @foreach (var source in AllSources)
     {
         <MudSelectItem Value=@source>@source.Name</MudSelectItem>
     }
 </MudSelect>
 
+<SourceComponent OneSource="SelectedSource"></SourceComponent>
 
-@*@foreach (var source in AllSources)
-{
-    <tr>
-        <tr>__________________________</tr>
-        <tr>@source.Id</tr>
-        <tr>@source.Name</tr>
-        <tr>@source.Description</tr>
-        <tr>@source.Title</tr>
-        <tr>@source.Url</tr>
-        <tr>@source.DataCreatedAt</tr>
-        <tr>@source.DataUpdatedAt</tr>
-        <tr>__________________________</tr>
-    </tr>
-}*@

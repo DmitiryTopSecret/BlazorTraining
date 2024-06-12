@@ -12,6 +12,9 @@ namespace BlazorServerTest.Components
     {
         [Inject] public SourceService SourceService { get; set; }
 
+        public Source SelectedSource { get; set; }
+        public IEnumerable<Source> SelectedSources { get; set; }
+
         public IEnumerable<Source> AllSources { get; set; }
 
         protected override async Task OnInitializedAsync()

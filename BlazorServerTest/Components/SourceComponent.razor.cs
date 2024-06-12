@@ -1,5 +1,6 @@
 ﻿using BlazorServerTest.Data.Sources;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,21 +14,30 @@ namespace BlazorServerTest.Components
         [Inject] public SourceService SourceService { get; set; }
         private const string SourceId = "1";
 
-
-        public Source OneSource { get; set; }
+        [Parameter] public Source OneSource { get; set; } = new Source();
 
         protected override async Task OnInitializedAsync()
         {
-            OneSource = await GetSource(SourceId);
+            OneSource = new Source(); /*await GetSource(SourceId);*/
 
             return;
         }
 
-        public async Task<Source> GetSource(string id)
+        protected override void OnParametersSet()
         {
-            var s = await SourceService.GetSourceByIdAsync(id);
-
-            return await Task.FromResult(s);
+            base.OnParametersSet();
         }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            base.OnAfterRender(firstRender);
+        }
+
+        //public async Task<Source> GetSource(string id)
+        //{
+        //    var s = await SourceService.GetSourceByIdAsync(id);
+
+        //    return await Task.FromResult(s);
+        //}
     }
 }
