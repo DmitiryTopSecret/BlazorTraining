@@ -1,6 +1,14 @@
 ﻿<h3>The List of all Sources</h3>
 
-@foreach (var source in AllSources)
+<MudSelect T="string" Lable="Source:" Variant="Variant.Outlined">
+    @foreach (var source in AllSources)
+    {
+        <MudSelectItem Value=@source>@source.Name</MudSelectItem>
+    }
+</MudSelect>
+
+
+@*@foreach (var source in AllSources)
 {
     <tr>
         <tr>__________________________</tr>
@@ -13,4 +21,4 @@
         <tr>@source.DataUpdatedAt</tr>
         <tr>__________________________</tr>
     </tr>
-}
+}*@
